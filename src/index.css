@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: theme("fontFamily.body");
+  font-weight: 400;
+  font-size: theme("fontSize.base");
+  line-height: theme("lineHeight.normal");
+  color: theme("colors.text-primary");
+  background-color: theme("colors.bg-main");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: theme("fontFamily.display");
+  font-weight: 700;
+  line-height: theme("lineHeight.tight");
+  letter-spacing: theme("letterSpacing.display");
+  color: theme("colors.text-primary");
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-primary text-white font-semibold text-sm tracking-wide rounded-md cursor-pointer transition-all duration-fast;
+  }
+  .btn-primary:hover {
+    @apply bg-primary-dark -translate-y-0.5;
+    box-shadow: theme("boxShadow.card-hover");
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-accent text-white font-semibold text-sm tracking-wide rounded-md cursor-pointer transition-all duration-fast;
+  }
+  .btn-accent:hover {
+    @apply bg-accent-dark -translate-y-0.5;
+    box-shadow: theme("boxShadow.card-hover");
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-transparent text-text-primary font-semibold text-sm tracking-wide rounded-md cursor-pointer transition-all duration-fast border-2 border-border-light;
+  }
+  .btn-outline:hover {
+    @apply border-primary text-primary bg-primary-bg;
+  }
+
+  .btn-outline-hero {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-transparent text-white font-semibold text-sm tracking-wide rounded-md cursor-pointer transition-all duration-fast border-2 border-white/50;
+  }
+  .btn-outline-hero:hover {
+    @apply border-white bg-white/10;
+  }
+
+  .card {
+    @apply bg-bg-elevated border border-border rounded-lg overflow-hidden transition-all duration-base;
+  }
+  .card:hover {
+    @apply -translate-y-0.5;
+    border-color: theme("colors.primary.bg-hover");
+    box-shadow: theme("boxShadow.card-hover");
+  }
+
+  .section-title {
+    @apply text-3xl lg:text-4xl font-bold mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-base lg:text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto;
+  }
+
+  .wave-separator {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 102, 204, 0.12),
+      rgba(102, 0, 204, 0.12),
+      transparent
+    );
+  }
+
+  .advantage-card {
+    @apply p-6 lg:p-8 text-center bg-bg-elevated border border-border rounded-lg transition-all duration-base;
+  }
+  .advantage-card:hover {
+    @apply -translate-y-0.5;
+    border-color: theme("colors.primary.DEFAULT");
+    box-shadow: theme("boxShadow.card-hover");
+  }
+
+  .product-card {
+    @apply overflow-hidden bg-bg-elevated border border-border rounded-lg transition-all duration-base;
+  }
+  .product-card:hover {
+    @apply -translate-y-0.5;
+    border-color: theme("colors.primary.DEFAULT");
+    box-shadow: theme("boxShadow.lg");
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 24px rgba(0, 102, 204, 0.12);
+  }
+  .glow-accent {
+    box-shadow: 0 0 24px rgba(255, 102, 0, 0.12);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #0066CC 0%, #6600CC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
