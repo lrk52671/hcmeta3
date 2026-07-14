@@ -28,12 +28,17 @@ export interface CameraSpec {
   value: string;
 }
 
+import vcselPam4 from '@/assets/106G PAM4 VCSEL.png';
+import vcselHcg from '@/assets/106G HCG VCSEL.png';
+import mHawkImg from '@/assets/mHawk Series.png';
+import iHawkImg from '@/assets/iHawk Series.png';
+
 export const vcselProducts: VcselProduct[] = [
   {
     id: 'vcsel-106-pam4',
     name: '106 Gbps PAM4 VCSEL',
     type: '850 nm multimode',
-    image: '/assets/image_0_yi19x4.jpg',
+    image: vcselPam4,
     features: [
       'Single-channel data rate up to 106 Gbps',
       '6-inch wafer process',
@@ -46,7 +51,7 @@ export const vcselProducts: VcselProduct[] = [
     id: 'vcsel-106-hcg',
     name: '106 Gbps HCG Few-Mode VCSEL',
     type: '850 nm single-mode',
-    image: '/assets/image_0_yi19x4.jpg',
+    image: vcselHcg,
     features: [
       'Suppression ratio approaching single-mode 15 dB',
       'Ultra-narrow spectral width: 0.12 nm RMS',
@@ -105,7 +110,7 @@ export const cameraSeries: CameraSeries[] = [
   {
     id: 'mhawk',
     name: 'mHawk Series',
-    image: '/assets/image_1_yi19x4.jpg',
+    image: mHawkImg,
     subProducts: [
       { name: 'mHawk P100R', description: 'Polarization extinction ratio 1000:1' },
       { name: 'mHawk 100R', description: 'Type-C USB interface' },
@@ -116,7 +121,7 @@ export const cameraSeries: CameraSeries[] = [
   {
     id: 'ihawk',
     name: 'iHawk Series',
-    image: '/assets/image_1_yi19x4.jpg',
+    image: iHawkImg,
     subProducts: [
       { name: 'iHawk P100Q', description: 'High precision measurement' },
       { name: 'iHawk 100Q', description: 'Micro USB interface' },
