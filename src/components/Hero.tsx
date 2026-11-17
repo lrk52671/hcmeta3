@@ -69,8 +69,8 @@ const Hero = () => {
           HC meta &middot; Photonics Semiconductor
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-          Precision Photonics:
-          <br className="hidden sm:block" /> Driving a New Frontier
+          Enabling AI with
+          <br className="hidden sm:block" /> Advanced Optical Connectivity
         </h1>
         <p className="text-base lg:text-lg leading-relaxed max-w-3xl mx-auto mb-10 text-white/80">
           A leading optoelectronic semiconductor company delivering
