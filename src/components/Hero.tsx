@@ -1,4 +1,4 @@
-import heroBg from "@/assets/image_2_yi19x4.jpg";
+import heroBg from "@/assets/hero-bg-optical.jpg";
 
 const Hero = () => {
   const particles = [
@@ -21,7 +21,7 @@ const Hero = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute inset-0 bg-bg-hero-dark/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/80"></div>
 
       {particles.map((particle, index) => (
         <div
