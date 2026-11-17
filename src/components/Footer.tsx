@@ -17,9 +17,7 @@ const Footer = () => {
               HC META
             </span>
             <p className="text-sm leading-relaxed max-w-md mb-6 text-white/70">
-              A leading optoelectronic semiconductor company delivering
-              cutting-edge high-speed VCSEL and high-performance 3D vision
-              solutions.
+              Enabling AI with Advanced Optical Connectivity.
             </p>
           </div>
 
