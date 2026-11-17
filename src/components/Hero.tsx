@@ -64,13 +64,17 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <p className="text-sm lg:text-base font-semibold tracking-widest uppercase mb-6 text-white/70 letter-spacing-wide">
           HC meta &middot; Photonics Semiconductor
         </p>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+        <h1
+          className="font-bold leading-tight mb-6 text-white"
+          style={{ fontSize: 'clamp(1.5rem, 6.2vw, 3.75rem)' }}
+        >
           Enabling AI with
-          <br className="hidden sm:block" /> Advanced Optical Connectivity
+          <br className="hidden sm:block" />
+          <span className="whitespace-nowrap">Advanced Optical Connectivity</span>
         </h1>
         <p className="text-base lg:text-lg leading-relaxed max-w-3xl mx-auto mb-10 text-white/80">
           A leading optoelectronic semiconductor company delivering
