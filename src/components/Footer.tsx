@@ -54,8 +54,8 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <Mail size={16} className="mt-0.5 shrink-0 text-primary-light" />
-                <a href="mailto:info@berxel.com" className="hover:text-white transition-colors">
-                  info@berxel.com
+                <a href="mailto:info@hcmeta.net" className="hover:text-white transition-colors">
+                  info@hcmeta.net
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/70">

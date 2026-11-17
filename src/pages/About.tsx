@@ -1,138 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, Building2 } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-function useCountUp({ end, suffix = '', duration = 2000, delay = 0 }: { end: number; suffix?: string; duration?: number; delay?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            hasAnimated.current = true;
-            setTimeout(() => {
-              const startTime = performance.now();
-              const animate = (currentTime: number) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                setCount(Math.floor(easeOutQuart * end));
-                if (progress < 1) {
-                  requestAnimationFrame(animate);
-                }
-              };
-              requestAnimationFrame(animate);
-            }, delay);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [end, duration, delay]);
-
-  return { ref, formattedCount: `${count}${suffix}` };
-}
-
-function StatItem({ value, suffix, label, sublabel, delay }: { value: number; suffix: string; label: string; sublabel: string; delay: number }) {
-  const { ref, formattedCount } = useCountUp({ end: value, suffix, duration: 2000, delay });
-
-  return (
-    <div ref={ref} className="text-center">
-      <p className="text-3xl lg:text-5xl font-bold mb-2 text-gradient" style={{ fontFamily: 'var(--font-display)' }}>
-        {formattedCount}
-      </p>
-      <p className="text-sm lg:text-base font-semibold text-text-secondary">{label}</p>
-      <p className="text-xs mt-1 text-text-tertiary">{sublabel}</p>
-    </div>
-  );
-}
-
-function StatsSection() {
-  const stats = [
-    { value: 20, suffix: '+', label: 'Years', sublabel: 'Core Team Experience', delay: 0 },
-    { value: 6, suffix: '-inch', label: 'Wafer', sublabel: 'Process', delay: 150 },
-    { value: 106, suffix: ' Gbps', label: 'Speed', sublabel: 'Max Data Rate', delay: 300 },
-    { value: 468, suffix: '', label: 'Standard', sublabel: 'Reliability Standard', delay: 450 },
-  ];
-
-  return (
-    <section className="py-20 lg:py-28 bg-bg-main">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-          {stats.map((stat, index) => (
-            <StatItem
-              key={index}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              sublabel={stat.sublabel}
-              delay={stat.delay}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TeamSection() {
-  const photos = [
-    {
-      src: '/assets/image_0_yi19x4.jpg',
-      alt: 'Optoelectronic Semiconductor Laboratory',
-      caption: 'Optoelectronic Semiconductor Laboratory',
-    },
-    {
-      src: '/assets/image_1_yi19x4.jpg',
-      alt: 'Chip R&D Team Collaboration',
-      caption: 'Chip R&D Team Collaboration',
-    },
-  ];
-
-  return (
-    <section className="py-20 lg:py-28 bg-bg-main-alt">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">R&D Team</h2>
-          <p className="text-base lg:text-lg max-w-3xl mx-auto leading-relaxed text-text-secondary">
-            HC meta's R&D team comprises postdoctoral, PhD, and master's degree holders. The core team brings over 20 years of experience across key domains including chip materials, epitaxial growth, chip fabrication processes, chip testing, and 3D optical systems.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {photos.map((photo, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-2xl group cursor-pointer bg-white border border-border transition-all duration-300 hover:border-primary hover:shadow-card-hover"
-            >
-              <div className="overflow-hidden">
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4 bg-bg-elevated">
-                <p className="text-sm font-semibold text-text-primary">{photo.caption}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 interface ContactInfoItemProps {
   icon: React.ReactNode;
@@ -179,7 +48,7 @@ function ContactSection() {
     { icon: <Building2 size={20} strokeWidth={2} />, label: 'Company', value: 'HC Meta Pte. Ltd.' },
     { icon: <MapPin size={20} strokeWidth={2} />, label: 'Address', value: '1 MARINA BOULEVARD, #28-00, ONE MARINA BOULEVARD, SINGAPORE 018989' },
     { icon: <Phone size={20} strokeWidth={2} />, label: 'Phone', value: '+86 0755-86572384' },
-    { icon: <Mail size={20} strokeWidth={2} />, label: 'Email', value: 'info@berxel.com' },
+    { icon: <Mail size={20} strokeWidth={2} />, label: 'Email', value: 'info@hcmeta.net' },
     { icon: <Clock size={20} strokeWidth={2} />, label: 'Business Hours', value: 'Mon - Fri 9:00 AM - 6:00 PM' },
   ];
 
@@ -252,8 +121,9 @@ function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center justify-center px-8 py-3 text-base mt-2 w-full md:w-auto rounded-lg font-semibold text-white bg-accent hover:bg-accent-dark transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base mt-2 w-full md:w-auto rounded-lg font-semibold text-white bg-accent hover:bg-accent-dark transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
               >
+                <Send size={18} />
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
               {submitStatus === 'success' && (
@@ -289,12 +159,6 @@ export default function About() {
             </p>
           </div>
         </section>
-
-        <StatsSection />
-
-        <div className="wave-separator" />
-
-        <TeamSection />
 
         <div className="wave-separator" />
 

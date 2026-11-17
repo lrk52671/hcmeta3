@@ -34,17 +34,6 @@ const Products = () => {
         "IP67 Protection",
       ],
     },
-    {
-      image: "",
-      title: "Fabrication & NRE Service",
-      alt: "Fabrication & NRE Service Platform",
-      features: [
-        "Design",
-        "Epitaxy",
-        "Process",
-        "Testing",
-      ],
-    },
   ];
 
   return (
@@ -59,29 +48,17 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {products.map((product, index) => (
             <div key={index} className="product-card">
-              {product.image ? (
-                <div className="overflow-hidden rounded-t-lg">
-                  <img
-                    src={product.image}
-                    alt={product.alt}
-                    loading="lazy"
-                    className="w-full h-56 lg:h-64 object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-              ) : (
-                <div className="rounded-t-lg bg-gradient-to-r from-blue-600 via-teal-500 to-green-500 h-56 lg:h-64 p-6 lg:p-8 flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-3">
-                    {["🎯", "💎", "⚙️", "🔬"].map((icon, idx) => (
-                      <div key={idx} className="bg-white/20 backdrop-blur-sm rounded-lg p-3 flex items-center justify-center">
-                        <span className="text-2xl">{icon}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div className="overflow-hidden rounded-t-lg">
+                <img
+                  src={product.image}
+                  alt={product.alt}
+                  loading="lazy"
+                  className="w-full h-56 lg:h-64 object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
               <div className="p-6 lg:p-8">
                 <h3 className="text-xl font-bold mb-4 font-display text-text-primary">
                   {product.title}
