@@ -3,19 +3,10 @@ import Footer from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { CameraSubItem } from "@/components/CameraSubItem";
 import { DataTable, SpecTable } from "@/components/DataTable";
-import { vcselProducts, vcselParameters, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
+import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
 export default function Products() {
-  const headers = ['Parameter', '106G PAM4', '106G HCG'];
   const uvcselHeaders = ['Parameter', '56G NRZ', '64G NRZ'];
-
-  const rows = vcselParameters.map((param) => ({
-    label: param.name,
-    values: [
-      param.values['106G PAM4'],
-      param.values['106G HCG'],
-    ],
-  }));
 
   const uvcselRows = [
     ...uvcselParameters.map((param) => ({
@@ -64,11 +55,6 @@ export default function Products() {
             </div>
 
             <div className="mt-16 overflow-x-auto">
-              <h3 className="text-2xl font-bold mb-6 text-text-primary">VCSEL Product Parameters</h3>
-              <DataTable headers={headers} rows={rows} />
-            </div>
-
-            <div className="mt-14 overflow-x-auto">
               <h3 className="text-2xl font-bold mb-6 text-text-primary">uVCSEL Product Parameters</h3>
               <DataTable headers={uvcselHeaders} rows={uvcselRows} />
             </div>

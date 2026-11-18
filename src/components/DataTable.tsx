@@ -36,13 +36,20 @@ export function DataTable({ headers, rows }: DataTableProps) {
             </div>
             {row.merge ? (
               <div
-                className="px-4 sm:px-5 py-3.5 flex items-center justify-evenly gap-2"
+                className="relative h-12"
                 style={{ gridColumn: `2 / span ${headers.length - 1}` }}
               >
-                {row.values.map((value) => (
+                {row.values.map((value, valueIndex) => (
                   <span
                     key={value}
-                    className="text-lg sm:text-xl font-semibold tabular-nums text-[#152738]"
+                    className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 text-lg sm:text-xl font-semibold tabular-nums text-[#152738]"
+                    style={{
+                      left: `${
+                        row.values.length === 1
+                          ? 50
+                          : 25 + (50 * valueIndex) / (row.values.length - 1)
+                      }%`,
+                    }}
                   >
                     {value}
                   </span>

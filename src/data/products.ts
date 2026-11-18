@@ -61,51 +61,6 @@ export const vcselProducts: VcselProduct[] = [
   },
 ];
 
-export const vcselParameters: VcselParameter[] = [
-  {
-    name: 'Operating Temperature',
-    values: {
-      '106G PAM4': '0~70°C',
-      '106G HCG': '0~70°C',
-    },
-  },
-  {
-    name: 'Modulation Bandwidth',
-    values: {
-      '106G PAM4': '25 GHz',
-      '106G HCG': '25 GHz',
-    },
-  },
-  {
-    name: 'RIN',
-    values: {
-      '106G PAM4': '<-139 dB/Hz',
-      '106G HCG': '<-139 dB/Hz',
-    },
-  },
-  {
-    name: 'Transmission Distance',
-    values: {
-      '106G PAM4': '100m',
-      '106G HCG': '300m',
-    },
-  },
-  {
-    name: 'Lifetime',
-    values: {
-      '106G PAM4': '>10 years',
-      '106G HCG': '>10 years',
-    },
-  },
-  {
-    name: 'Array Size',
-    values: {
-      '106G PAM4': '1x4',
-      '106G HCG': '1x4',
-    },
-  },
-];
-
 export const uvcselParameters: VcselParameter[] = [
   {
     name: 'Operating Temperature',
