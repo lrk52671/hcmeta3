@@ -106,6 +106,39 @@ export const vcselParameters: VcselParameter[] = [
   },
 ];
 
+export const uvcselParameters: VcselParameter[] = [
+  {
+    name: 'Operating Temperature',
+    values: {
+      '56G NRZ': '0~95°C',
+      '64G NRZ': '0~70°C',
+    },
+  },
+  {
+    name: 'Modulation Bandwidth',
+    values: {
+      '56G NRZ': '25 GHz',
+      '64G NRZ': '38 GHz',
+    },
+  },
+  {
+    name: 'Transmission Distance',
+    values: {
+      '56G NRZ': '100m',
+      '64G NRZ': '100m',
+    },
+  },
+  {
+    name: 'Lifetime',
+    values: {
+      '56G NRZ': '>10 years',
+      '64G NRZ': '>10 years',
+    },
+  },
+];
+
+export const uvcselArraySizes = ['19', '37', '61', '97'];
+
 export const cameraSeries: CameraSeries[] = [
   {
     id: 'mhawk',

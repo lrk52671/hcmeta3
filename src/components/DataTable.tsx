@@ -1,6 +1,6 @@
 interface DataTableProps {
   headers: string[];
-  rows: { label: string; values: string[] }[];
+  rows: { label: string; values: string[]; merge?: boolean }[];
 }
 
 export function DataTable({ headers, rows }: DataTableProps) {
@@ -34,14 +34,30 @@ export function DataTable({ headers, rows }: DataTableProps) {
             <div className="px-4 sm:px-5 py-3.5 text-left text-[0.8125rem] text-[#5B6B7B]">
               {row.label}
             </div>
-            {row.values.map((value, valueIndex) => (
+            {row.merge ? (
               <div
-                key={`${row.label}-${valueIndex}`}
-                className="px-4 sm:px-5 py-3.5 text-center text-[0.9375rem] font-medium tabular-nums text-[#152738]"
+                className="px-4 sm:px-5 py-3.5 flex items-center justify-evenly gap-2"
+                style={{ gridColumn: `2 / span ${headers.length - 1}` }}
               >
-                {value}
+                {row.values.map((value) => (
+                  <span
+                    key={value}
+                    className="text-lg sm:text-xl font-semibold tabular-nums text-[#152738]"
+                  >
+                    {value}
+                  </span>
+                ))}
               </div>
-            ))}
+            ) : (
+              row.values.map((value, valueIndex) => (
+                <div
+                  key={`${row.label}-${valueIndex}`}
+                  className="px-4 sm:px-5 py-3.5 text-center text-[0.9375rem] font-medium tabular-nums text-[#152738]"
+                >
+                  {value}
+                </div>
+              ))
+            )}
           </div>
         ))}
       </div>
