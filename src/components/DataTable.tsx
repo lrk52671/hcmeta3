@@ -4,37 +4,47 @@ interface DataTableProps {
 }
 
 export function DataTable({ headers, rows }: DataTableProps) {
+  const gridTemplateColumns = `minmax(0, 1.2fr) repeat(${headers.length - 1}, minmax(0, 1fr))`;
+
   return (
-    <div className="rounded-lg overflow-hidden border border-border">
-      <table className="data-table w-full text-sm">
-        <thead>
-          <tr className="bg-white">
-            <th className="text-left px-5 py-3.5 font-semibold text-primary text-[0.8125rem]">
-              {headers[0]}
-            </th>
-            {headers.slice(1).map((header) => (
-              <th key={header} className="text-center px-5 py-3.5 font-semibold text-primary text-[0.8125rem]">
-                {header}
-              </th>
+    <div className="rounded-2xl border border-[#E6EBF0] bg-white p-2.5 sm:p-3.5 shadow-[0_2px_10px_rgba(16,42,67,0.05)]">
+      <div className="grid items-center" style={{ gridTemplateColumns }}>
+        <div className="px-4 sm:px-5 py-4 text-left text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-primary">
+          {headers[0]}
+        </div>
+        {headers.slice(1).map((header) => (
+          <div
+            key={header}
+            className="px-4 sm:px-5 py-4 text-center text-base sm:text-lg font-medium tracking-tight text-primary"
+          >
+            {header}
+          </div>
+        ))}
+      </div>
+
+      <div className="space-y-1">
+        {rows.map((row, rowIndex) => (
+          <div
+            key={row.label}
+            className={`grid items-center rounded-xl ${
+              rowIndex % 2 === 0 ? 'bg-[#F5F8FA]' : 'bg-white'
+            }`}
+            style={{ gridTemplateColumns }}
+          >
+            <div className="px-4 sm:px-5 py-3.5 text-left text-[0.8125rem] text-[#5B6B7B]">
+              {row.label}
+            </div>
+            {row.values.map((value, valueIndex) => (
+              <div
+                key={`${row.label}-${valueIndex}`}
+                className="px-4 sm:px-5 py-3.5 text-center text-[0.9375rem] font-medium tabular-nums text-[#152738]"
+              >
+                {value}
+              </div>
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr
-              key={row.label}
-              className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-bg-main-alt'}
-            >
-              <td className="px-5 py-3 text-text-secondary">{row.label}</td>
-              {row.values.map((value) => (
-                <td key={value} className="px-5 py-3 text-center text-text-primary font-mono">
-                  {value}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
