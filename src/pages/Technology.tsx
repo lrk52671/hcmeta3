@@ -12,8 +12,8 @@ export default function Technology() {
           <div className="absolute bottom-[-10%] right-[-8%] w-96 h-96 rounded-full opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(102,0,204,0.06) 0%, transparent 70%)' }}></div>
 
           <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <img src={pageLogo} alt="HC Meta" className="h-8 lg:h-10 w-auto object-contain opacity-90" />
+            <div className="inline-flex items-baseline gap-3 mb-4">
+              <img src={pageLogo} alt="HC Meta" className="h-8 lg:h-10 w-auto object-contain opacity-90 -mb-1" />
               <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-primary" style={{ letterSpacing: '0.05em' }}>
                 Core Technology
               </span>

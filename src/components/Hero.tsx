@@ -66,8 +66,8 @@ const Hero = () => {
       ></div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-3 mb-6">
-          <img src={heroLogo} alt="HC Meta" className="h-9 lg:h-11 w-auto object-contain brightness-0 invert opacity-80" />
+        <div className="inline-flex items-baseline gap-3 mb-6">
+          <img src={heroLogo} alt="HC Meta" className="h-9 lg:h-11 w-auto object-contain brightness-0 invert opacity-80 -mb-1" />
           <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-white/70 letter-spacing-wide">
             Photonics Semiconductor
           </span>

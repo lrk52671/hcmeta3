@@ -14,7 +14,9 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
           <div>
-            <img src={footerLogo} alt="HC Meta" className="h-12 w-auto object-contain mb-4 brightness-0 invert" />
+            <div className="flex items-center">
+              <img src={footerLogo} alt="HC Meta" className="h-12 w-auto object-contain mb-4 brightness-0 invert" />
+            </div>
             <p className="text-sm leading-relaxed max-w-md mb-6 text-white/70">
               A leading optoelectronic semiconductor company delivering
               cutting-edge high-speed VCSEL and high-performance 3D vision
