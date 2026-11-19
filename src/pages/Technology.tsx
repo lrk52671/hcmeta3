@@ -13,7 +13,7 @@ export default function Technology() {
 
           <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-3 mb-4">
-              <img src={pageLogo} alt="HC Meta" className="h-6 lg:h-7 w-auto object-contain opacity-90" />
+              <img src={pageLogo} alt="HC Meta" className="h-8 lg:h-10 w-auto object-contain opacity-90" />
               <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-primary" style={{ letterSpacing: '0.05em' }}>
                 Core Technology
               </span>

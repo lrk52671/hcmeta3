@@ -33,7 +33,7 @@ export default function Products() {
         <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden" style={{ background: 'linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%)' }}>
           <div className="max-w-4xl mx-auto text-center px-6">
             <div className="inline-flex items-center gap-3 mb-4">
-              <img src={pageLogo} alt="HC Meta" className="h-6 lg:h-7 w-auto object-contain opacity-90" />
+              <img src={pageLogo} alt="HC Meta" className="h-8 lg:h-10 w-auto object-contain opacity-90" />
               <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-primary" style={{ letterSpacing: '0.05em' }}>
                 Product Center
               </span>
