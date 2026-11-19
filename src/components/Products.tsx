@@ -9,6 +9,7 @@ interface Product {
   title: string;
   features: string[];
   alt: string;
+  href: string;
   fit?: "cover" | "contain";
 }
 
@@ -16,8 +17,9 @@ const Products = () => {
   const products: Product[] = [
     {
       image: productImg0,
-      title: "High-Speed VCSEL Chips",
-      alt: "High-Speed VCSEL Chips",
+      title: "High Speed 850nm VCSELs",
+      alt: "High Speed 850nm VCSELs",
+      href: "/products#vcsel",
       features: [
         "106 Gbps PAM4",
         "53 Gbps PAM4",
@@ -29,6 +31,7 @@ const Products = () => {
       image: productImg1,
       title: "High-Performance 3D Cameras",
       alt: "High-Performance 3D Cameras",
+      href: "/products#3d-cameras",
       features: [
         "mHawk Series",
         "iHawk Series",
@@ -40,6 +43,7 @@ const Products = () => {
       image: productImg2,
       title: "uVCSEL and uPD for dense optical interconnects",
       alt: "uVCSEL and uPD for dense optical interconnects",
+      href: "/products#uvcsel",
       fit: "contain",
       features: [
         "56G NRZ",
@@ -64,7 +68,11 @@ const Products = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
           {products.map((product, index) => (
-            <div key={index} className="product-card flex flex-col h-full">
+            <Link
+              key={index}
+              to={product.href}
+              className="product-card flex flex-col h-full cursor-pointer group"
+            >
               <div
                 className={`overflow-hidden rounded-t-lg h-56 lg:h-64 ${
                   product.fit === "contain"
@@ -76,7 +84,7 @@ const Products = () => {
                   src={product.image}
                   alt={product.alt}
                   loading="lazy"
-                  className={`w-full h-full transition-transform duration-500 hover:scale-105 ${
+                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${
                     product.fit === "contain"
                       ? "object-contain drop-shadow-[0_10px_20px_rgba(21,39,56,0.18)] rounded-md"
                       : "object-cover"
@@ -99,12 +107,12 @@ const Products = () => {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  <Link to="/products" className="btn-accent text-sm px-6 py-2.5">
+                  <span className="btn-accent text-sm px-6 py-2.5 inline-block">
                     View Details
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

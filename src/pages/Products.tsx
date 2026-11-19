@@ -47,7 +47,7 @@ export default function Products() {
           </div>
         </section>
 
-        <section className="py-20 lg:py-28 bg-white">
+        <section id="vcsel" className="py-20 lg:py-28 bg-white scroll-mt-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-16">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
@@ -67,7 +67,7 @@ export default function Products() {
               ))}
             </div>
 
-            <div className="mt-20">
+            <div className="mt-20 scroll-mt-24" id="uvcsel">
               <div className="mb-10">
                 <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                   1060 nm Micro VCSEL Arrays
@@ -110,7 +110,7 @@ export default function Products() {
           </div>
         </section>
 
-        <section className="py-20 lg:py-28 bg-bg-main-alt">
+        <section id="3d-cameras" className="py-20 lg:py-28 bg-bg-main-alt scroll-mt-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-16">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
