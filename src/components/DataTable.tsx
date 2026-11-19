@@ -9,13 +9,13 @@ export function DataTable({ headers, rows }: DataTableProps) {
   return (
     <div className="rounded-2xl border border-[#E6EBF0] bg-white p-2.5 sm:p-3.5 shadow-[0_2px_10px_rgba(16,42,67,0.05)]">
       <div className="grid items-center" style={{ gridTemplateColumns }}>
-        <div className="px-4 sm:px-5 py-4 text-left text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-primary">
+        <div className="px-4 sm:px-5 py-4 text-left text-xs sm:text-sm font-semibold uppercase tracking-[0.08em] text-primary font-display">
           {headers[0]}
         </div>
         {headers.slice(1).map((header) => (
           <div
             key={header}
-            className="px-4 sm:px-5 py-4 text-center text-base sm:text-lg font-medium tracking-tight text-primary"
+            className="px-4 sm:px-5 py-4 text-center text-lg sm:text-xl font-bold tracking-tight text-text-primary font-display"
           >
             {header}
           </div>
@@ -31,7 +31,7 @@ export function DataTable({ headers, rows }: DataTableProps) {
             }`}
             style={{ gridTemplateColumns }}
           >
-            <div className="px-4 sm:px-5 py-3.5 text-left text-[0.8125rem] text-[#5B6B7B]">
+            <div className="px-4 sm:px-5 py-3.5 text-left text-sm sm:text-base text-text-secondary">
               {row.label}
             </div>
             {row.merge ? (
@@ -42,7 +42,7 @@ export function DataTable({ headers, rows }: DataTableProps) {
                 {row.values.map((value, valueIndex) => (
                   <span
                     key={value}
-                    className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 text-lg sm:text-xl font-semibold tabular-nums text-[#152738]"
+                    className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 text-xl sm:text-2xl font-bold tabular-nums text-text-primary font-display"
                     style={{
                       left: `${
                         row.values.length === 1
@@ -59,7 +59,7 @@ export function DataTable({ headers, rows }: DataTableProps) {
               row.values.map((value, valueIndex) => (
                 <div
                   key={`${row.label}-${valueIndex}`}
-                  className="px-4 sm:px-5 py-3.5 text-center text-[0.9375rem] font-medium tabular-nums text-[#152738]"
+                  className="px-4 sm:px-5 py-3.5 text-center text-base sm:text-lg font-semibold tabular-nums text-text-primary"
                 >
                   {value}
                 </div>
