@@ -17,13 +17,17 @@ export default function Products() {
       if (location.hash) {
         const el = document.querySelector(location.hash);
         if (el) {
-          const navbar = document.querySelector("nav");
-          const navH = navbar ? navbar.getBoundingClientRect().height : 80;
-          const top = el.getBoundingClientRect().top + window.scrollY - navH - 16;
-          window.scrollTo({ top, behavior: "smooth" });
+          // 先重置到顶部，避免浏览器因 hash 自动滚动导致坐标不准
+          window.scrollTo({ top: 0 });
+          requestAnimationFrame(() => {
+            const navbar = document.querySelector("nav");
+            const navH = navbar ? navbar.getBoundingClientRect().height : 80;
+            const top = el.getBoundingClientRect().top - navH - 12;
+            window.scrollTo({ top, behavior: "smooth" });
+          });
         }
       } else {
-        window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+        window.scrollTo({ top: 0 });
       }
     };
     requestAnimationFrame(run);
