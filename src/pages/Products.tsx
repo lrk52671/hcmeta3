@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
@@ -11,27 +9,6 @@ import pageLogo from "@/assets/hcmeta-logo-full.png";
 import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
 export default function Products() {
-  const location = useLocation();
-  useEffect(() => {
-    const run = () => {
-      if (location.hash) {
-        const el = document.querySelector(location.hash);
-        if (el) {
-          // 先重置到顶部，避免浏览器因 hash 自动滚动导致坐标不准
-          window.scrollTo({ top: 0 });
-          requestAnimationFrame(() => {
-            const navbar = document.querySelector("nav");
-            const navH = navbar ? navbar.getBoundingClientRect().height : 80;
-            const top = el.getBoundingClientRect().top - navH - 12;
-            window.scrollTo({ top, behavior: "smooth" });
-          });
-        }
-      } else {
-        window.scrollTo({ top: 0 });
-      }
-    };
-    requestAnimationFrame(run);
-  }, [location.hash]);
   const uvcselHeaders = ['Parameter', '56G NRZ', '64G NRZ'];
 
   const uvcselRows = [
@@ -69,7 +46,7 @@ export default function Products() {
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div id="vcsel" className="mb-16">
+            <div id="vcsel" className="mb-16 scroll-mt-[80px]">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                 VCSEL Laser Chips
               </p>
@@ -87,7 +64,7 @@ export default function Products() {
               ))}
             </div>
 
-            <div className="mt-20" id="uvcsel">
+            <div className="mt-20 scroll-mt-[80px]" id="uvcsel">
               <div className="mb-10">
                 <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                   1060 nm Micro VCSEL Arrays
@@ -132,7 +109,7 @@ export default function Products() {
 
         <section className="py-20 lg:py-28 bg-bg-main-alt">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div id="3d-cameras" className="mb-16">
+            <div id="3d-cameras" className="mb-16 scroll-mt-[80px]">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                 3D Depth Cameras
               </p>

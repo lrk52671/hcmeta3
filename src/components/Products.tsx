@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import { Link } from "react-router-dom";
 import productImg0 from "@/assets/vcsel.png";
 import productImg1 from "@/assets/camera.png";
 import productImg2 from "@/assets/uvcsel-upd-cover.png";
@@ -68,9 +67,9 @@ const Products = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
           {products.map((product, index) => (
-            <Link
+            <a
               key={index}
-              to={product.href}
+              href={product.href}
               className="product-card flex flex-col h-full cursor-pointer group"
             >
               <div
@@ -112,7 +111,7 @@ const Products = () => {
                   </span>
                 </div>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
