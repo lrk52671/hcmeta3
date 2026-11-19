@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { CameraSubItem } from "@/components/CameraSubItem";
 import { DataTable, SpecTable } from "@/components/DataTable";
+import { Check } from "lucide-react";
+import uvcselWafer from "@/assets/uvcsel-array-wafer.png";
 import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
 export default function Products() {
@@ -14,6 +16,13 @@ export default function Products() {
       values: [param.values['56G NRZ'], param.values['64G NRZ']],
     })),
     { label: 'Array Size', values: uvcselArraySizes, merge: true },
+  ];
+
+  const uvcselFeatures = [
+    '56G / 64G NRZ modulation bandwidth',
+    'Array sizes up to 97 channels',
+    'Integrated with uPD receivers',
+    'Dense optical interconnects for AI clusters',
   ];
 
   return (
@@ -41,7 +50,7 @@ export default function Products() {
                 VCSEL Laser Chips
               </p>
               <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-text-primary">
-                High-Rate VCSELs
+                High Speed 850nm VCSELs
               </h2>
               <p className="text-base lg:text-lg max-w-2xl leading-relaxed text-text-secondary">
                 850 nm VCSEL products supporting data rates from 25 Gbps to 106 Gbps, using 6-inch wafer process with excellent uniformity and high yield.
@@ -54,9 +63,45 @@ export default function Products() {
               ))}
             </div>
 
-            <div className="mt-16 overflow-x-auto">
-              <h3 className="text-2xl font-bold mb-6 text-text-primary">uVCSEL Product Parameters</h3>
-              <DataTable headers={uvcselHeaders} rows={uvcselRows} />
+            <div className="mt-20">
+              <div className="mb-10">
+                <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
+                  1060 nm Micro VCSEL Arrays
+                </p>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-text-primary" style={{ lineHeight: '1.2', letterSpacing: '-0.025em' }}>
+                  1060nm Micro VCSEL Arrays for Optical Interconnects
+                </h2>
+                <p className="text-base lg:text-lg max-w-3xl leading-relaxed text-text-secondary">
+                  Compact 1060 nm micro VCSEL arrays delivering 56G / 64G NRZ per channel, ideal for next-generation dense optical interconnects in AI computing and high-bandwidth switches.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
+                <div className="lg:col-span-3 overflow-hidden rounded-2xl border border-border shadow-[0_2px_10px_rgba(16,42,67,0.05)] bg-gradient-to-br from-[#F2F4F6] via-[#E7EBEE] to-[#DDE3E8] flex items-center justify-center p-8">
+                  <img
+                    src={uvcselWafer}
+                    alt="1060nm Micro VCSEL Arrays"
+                    className="max-w-full max-h-[380px] object-contain drop-shadow-[0_10px_24px_rgba(21,39,56,0.18)] rounded-md"
+                  />
+                </div>
+                <div className="lg:col-span-2 flex flex-col justify-center">
+                  <h3 className="text-2xl font-bold mb-6 text-text-primary">Product Highlights</h3>
+                  <ul className="space-y-4">
+                    {uvcselFeatures.map((f) => (
+                      <li key={f} className="flex items-start gap-3">
+                        <span className="mt-0.5 flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 shrink-0">
+                          <Check size={14} className="text-primary" strokeWidth={3} />
+                        </span>
+                        <span className="text-base text-text-secondary leading-relaxed">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <DataTable headers={uvcselHeaders} rows={uvcselRows} />
+              </div>
             </div>
           </div>
         </section>
