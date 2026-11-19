@@ -1,5 +1,5 @@
 import heroBg from "@/assets/hero-bg-optical.jpg";
-import heroLogo from "@/assets/图片1.png";
+import heroLogo from "@/assets/hcmeta-logo-icon.png";
 
 const Hero = () => {
   const particles = [

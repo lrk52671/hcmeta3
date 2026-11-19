@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import pageLogo from "@/assets/图片1.png";
+import pageLogo from "@/assets/hcmeta-logo-icon.png";
 
 export default function Technology() {
   return (
