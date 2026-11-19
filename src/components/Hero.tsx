@@ -66,9 +66,12 @@ const Hero = () => {
       ></div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <p className="text-sm lg:text-base font-semibold tracking-widest uppercase mb-6 text-white/70 letter-spacing-wide">
-          Photonics Semiconductor
-        </p>
+        <div className="inline-flex items-center gap-2.5 mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+          <span className="text-xs lg:text-sm font-semibold tracking-[0.15em] uppercase text-white/80">
+            Photonics Semiconductor
+          </span>
+        </div>
         <h1
           className="font-bold leading-tight mb-6 text-white"
           style={{ fontSize: 'clamp(1.5rem, 6.2vw, 3.75rem)' }}
