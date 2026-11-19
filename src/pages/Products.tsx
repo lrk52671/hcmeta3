@@ -13,14 +13,17 @@ import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, camera
 export default function Products() {
   const location = useLocation();
   useEffect(() => {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const run = () => {
+      if (location.hash) {
+        const el = document.querySelector(location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    }
+    };
+    requestAnimationFrame(run);
   }, [location.hash]);
   const uvcselHeaders = ['Parameter', '56G NRZ', '64G NRZ'];
 
@@ -57,7 +60,7 @@ export default function Products() {
           </div>
         </section>
 
-        <section id="vcsel" className="py-20 lg:py-28 bg-white scroll-mt-24">
+        <section id="vcsel" className="py-20 lg:py-28 bg-white scroll-mt-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-16">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
@@ -77,7 +80,7 @@ export default function Products() {
               ))}
             </div>
 
-            <div className="mt-20 scroll-mt-24" id="uvcsel">
+            <div className="mt-20 scroll-mt-20" id="uvcsel">
               <div className="mb-10">
                 <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                   1060 nm Micro VCSEL Arrays
@@ -120,7 +123,7 @@ export default function Products() {
           </div>
         </section>
 
-        <section id="3d-cameras" className="py-20 lg:py-28 bg-bg-main-alt scroll-mt-24">
+        <section id="3d-cameras" className="py-20 lg:py-28 bg-bg-main-alt scroll-mt-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-16">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
