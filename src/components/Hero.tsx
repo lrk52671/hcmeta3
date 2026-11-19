@@ -1,4 +1,5 @@
 import heroBg from "@/assets/hero-bg-optical.jpg";
+import heroLogo from "@/assets/图片1.png";
 
 const Hero = () => {
   const particles = [
@@ -65,9 +66,12 @@ const Hero = () => {
       ></div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <p className="text-sm lg:text-base font-semibold tracking-widest uppercase mb-6 text-white/70 letter-spacing-wide">
-          HC meta &middot; Photonics Semiconductor
-        </p>
+        <div className="inline-flex items-center gap-3 mb-6">
+          <img src={heroLogo} alt="HC Meta" className="h-7 lg:h-8 w-auto object-contain brightness-0 invert opacity-80" />
+          <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-white/70 letter-spacing-wide">
+            Photonics Semiconductor
+          </span>
+        </div>
         <h1
           className="font-bold leading-tight mb-6 text-white"
           style={{ fontSize: 'clamp(1.5rem, 6.2vw, 3.75rem)' }}

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import pageLogo from "@/assets/图片1.png";
 
 export default function Technology() {
   return (
@@ -11,9 +12,12 @@ export default function Technology() {
           <div className="absolute bottom-[-10%] right-[-8%] w-96 h-96 rounded-full opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(102,0,204,0.06) 0%, transparent 70%)' }}></div>
 
           <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <p className="text-sm lg:text-base font-semibold tracking-widest uppercase mb-4 text-primary" style={{ letterSpacing: '0.05em' }}>
-              HC meta &middot; Core Technology
-            </p>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <img src={pageLogo} alt="HC Meta" className="h-6 lg:h-7 w-auto object-contain opacity-90" />
+              <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-primary" style={{ letterSpacing: '0.05em' }}>
+                Core Technology
+              </span>
+            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Technology</h1>
             <p className="text-base lg:text-lg leading-relaxed max-w-3xl mx-auto text-text-secondary">
               Powered by VCSEL vertical-cavity surface-emitting laser core technology, combined with PAM4 modulation and HCG high-contrast grating structure, delivering high-speed, low-power, high-reliability optoelectronic solutions.

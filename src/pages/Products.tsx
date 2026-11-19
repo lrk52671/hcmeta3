@@ -5,6 +5,7 @@ import { CameraSubItem } from "@/components/CameraSubItem";
 import { DataTable, SpecTable } from "@/components/DataTable";
 import { Check } from "lucide-react";
 import uvcselWafer from "@/assets/uvcsel-array-wafer.png";
+import pageLogo from "@/assets/图片1.png";
 import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
 export default function Products() {
@@ -31,9 +32,12 @@ export default function Products() {
       <main>
         <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden" style={{ background: 'linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%)' }}>
           <div className="max-w-4xl mx-auto text-center px-6">
-            <p className="text-sm lg:text-base font-semibold tracking-widest uppercase mb-4 text-primary" style={{ letterSpacing: '0.05em' }}>
-              HC meta &middot; Product Center
-            </p>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <img src={pageLogo} alt="HC Meta" className="h-6 lg:h-7 w-auto object-contain opacity-90" />
+              <span className="text-sm lg:text-base font-semibold tracking-widest uppercase text-primary" style={{ letterSpacing: '0.05em' }}>
+                Product Center
+              </span>
+            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-text-primary" style={{ lineHeight: '1.15', letterSpacing: '-0.025em' }}>
               Products
             </h1>
