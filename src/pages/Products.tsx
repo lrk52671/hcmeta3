@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
@@ -9,6 +11,17 @@ import pageLogo from "@/assets/hcmeta-logo-full.png";
 import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
 export default function Products() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }
+  }, [location.hash]);
   const uvcselHeaders = ['Parameter', '56G NRZ', '64G NRZ'];
 
   const uvcselRows = [
