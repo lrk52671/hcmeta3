@@ -78,30 +78,32 @@ interface SpecTableProps {
 
 export function SpecTable({ specs }: SpecTableProps) {
   return (
-    <div className="rounded-lg overflow-hidden border border-border">
-      <table className="data-table w-full text-sm">
-        <thead>
-          <tr className="bg-white">
-            <th className="text-left px-5 py-3.5 font-semibold text-primary text-[0.8125rem]">
-              Specification
-            </th>
-            <th className="text-left px-5 py-3.5 font-semibold text-primary text-[0.8125rem]">
-              Detail
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {specs.map((spec, index) => (
-            <tr
-              key={spec.name}
-              className={index % 2 === 0 ? 'bg-white' : 'bg-bg-main-alt'}
-            >
-              <td className="px-5 py-3 text-text-secondary">{spec.name}</td>
-              <td className="px-5 py-3 text-text-primary font-mono">{spec.value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="rounded-2xl border border-[#E6EBF0] bg-white p-2.5 sm:p-3.5 shadow-[0_2px_10px_rgba(16,42,67,0.05)] overflow-hidden">
+      <div className="grid grid-cols-2 items-center">
+        <div className="px-4 sm:px-5 py-4 text-left text-xs sm:text-sm font-semibold uppercase tracking-[0.08em] text-primary font-display">
+          Specification
+        </div>
+        <div className="px-4 sm:px-5 py-4 text-left text-xs sm:text-sm font-semibold uppercase tracking-[0.08em] text-primary font-display">
+          Detail
+        </div>
+      </div>
+      <div className="space-y-1">
+        {specs.map((spec, index) => (
+          <div
+            key={spec.name}
+            className={`grid grid-cols-2 items-center rounded-xl ${
+              index % 2 === 0 ? 'bg-[#F5F8FA]' : 'bg-white'
+            }`}
+          >
+            <div className="px-4 sm:px-5 py-3.5 text-left text-sm sm:text-base text-text-secondary">
+              {spec.name}
+            </div>
+            <div className="px-4 sm:px-5 py-3.5 text-left text-base sm:text-lg font-semibold tabular-nums text-text-primary">
+              {spec.value}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
