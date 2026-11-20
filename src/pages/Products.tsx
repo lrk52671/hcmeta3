@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { CameraSubItem } from "@/components/CameraSubItem";
 import { DataTable, SpecTable } from "@/components/DataTable";
 import { Check } from "lucide-react";
-import uvcselWafer from "@/assets/uvcsel-array-wafer.png";
+import uvcselWafer from "@/assets/uvcsel-upd-cover-new.png";
 import pageLogo from "@/assets/hcmeta-logo-full.png";
 import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
