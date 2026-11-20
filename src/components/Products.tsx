@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import productImg0 from "@/assets/vcsel.png";
 import productImg1 from "@/assets/camera.png";
-import productImg2 from "@/assets/uvcsel-upd-cover.png";
+import productImg2 from "@/assets/uvcsel-upd-cover-new.png";
 
 interface Product {
   image: string;
