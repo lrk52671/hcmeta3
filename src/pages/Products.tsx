@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
@@ -9,6 +11,43 @@ import pageLogo from "@/assets/hcmeta-logo-full.png";
 import { vcselProducts, uvcselParameters, uvcselArraySizes, cameraSeries, cameraSpecs } from "@/data/products";
 
 export default function Products() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const id = location.hash.replace("#", "");
+    if (!id) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+
+    let cancelled = false;
+    const html = document.documentElement;
+
+    const align = () => {
+      if (cancelled) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      const nav = document.querySelector("nav");
+      const navH = nav ? nav.getBoundingClientRect().height : 80;
+      const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - navH - 16);
+      // 临时关掉全局 smooth，否则 scrollTo 会变成动画、多次校正互相打断
+      const prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      window.scrollTo({ top });
+      html.style.scrollBehavior = prev;
+    };
+
+    // 渲染完成后立即定位，之后在图片/字体加载引起布局变化时各校正一次
+    const raf = requestAnimationFrame(align);
+    const timers = [200, 500, 900, 1500].map((ms) => setTimeout(align, ms));
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      timers.forEach(clearTimeout);
+    };
+  }, [location.hash, location.key]);
+
   const uvcselHeaders = ['Parameter', '56G NRZ', '64G NRZ'];
 
   const uvcselRows = [
@@ -46,7 +85,7 @@ export default function Products() {
 
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div id="vcsel" className="mb-16 scroll-mt-[80px]">
+            <div id="vcsel" className="mb-16">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                 VCSEL Laser Chips
               </p>
@@ -64,7 +103,7 @@ export default function Products() {
               ))}
             </div>
 
-            <div className="mt-20 scroll-mt-[80px]" id="uvcsel">
+            <div className="mt-20" id="uvcsel">
               <div className="mb-10">
                 <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                   1060 nm Micro VCSEL Arrays
@@ -109,7 +148,7 @@ export default function Products() {
 
         <section className="py-20 lg:py-28 bg-bg-main-alt">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div id="3d-cameras" className="mb-16 scroll-mt-[80px]">
+            <div id="3d-cameras" className="mb-16">
               <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-primary" style={{ letterSpacing: '0.05em' }}>
                 3D Depth Cameras
               </p>
