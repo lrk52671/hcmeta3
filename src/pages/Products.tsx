@@ -60,8 +60,8 @@ export default function Products() {
 
   const uvcselFeatures = [
     '56G / 64G NRZ modulation bandwidth',
-    'Array sizes up to 97 channels',
-    'Integrated with uPD receivers',
+    'uVCSEL and uPD Array up to 97 channels',
+    'Integrated with collimation or collection microlense array',
     'Dense optical interconnects for AI clusters',
   ];
 
